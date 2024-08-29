@@ -88,9 +88,9 @@ if(isset($_POST['submit'])){
    </div>
 
    <div class="content">
-      <h3 data-aos="fade-up">hi, i am sana shaikh</h3>
-      <span data-aos="fade-up">web designer & developer</span>
-      <p data-aos="fade-up">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis labore recusandae minima molestias aliquam nostrum.</p>
+      <h3 data-aos="fade-up">hi, i'm james curtis</h3>
+      <span data-aos="fade-up">full-stack software developer</span>
+      <p data-aos="fade-up">I started studying and working within the software development industry in 2024.</p>
       <a data-aos="fade-up" href="#about" class="btn">about me</a>
    </div>
 
