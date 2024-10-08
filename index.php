@@ -2,32 +2,48 @@
 
 include 'components/connect.php';
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])) {
 
    $id = create_unique_id();
-   $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $number = $_POST['number'];
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
-   $message = $_POST['message'];
-   $message = filter_var($message, FILTER_SANITIZE_STRING);
+   
+   // Sanitize inputs
+   $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
+   $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+   $number = htmlspecialchars($_POST['number'], ENT_QUOTES, 'UTF-8');
+   $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
 
-   $verify_contact = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND number = ? AND email = ?");
-   $verify_contact->execute([$name, $number, $email]);
+   if($email === false){
+      $warning_msg[] = 'Invalid email format!';
+   } else {
+      // Check if the message already exists
+      $verify_contact = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND number = ? AND email = ?");
+      $verify_contact->execute([$name, $number, $email]);
 
-   if($verify_contact->rowCount() > 0){
-      $warning_msg[] = 'Message sent already!';
-   }else{
-      $insert_contact = $conn->prepare("INSERT INTO `messages`(id, name, number, email, message) VALUES(?,?,?,?,?)");
-      $insert_contact->execute([$id, $name, $number, $email, $message]);
-      $success_msg[] = 'Message Sent Successfully!';
+      if($verify_contact->rowCount() > 0) {
+         $warning_msg[] = 'Message sent already!';
+      } else {
+         // Insert the new message
+         $insert_contact = $conn->prepare("INSERT INTO `messages`(id, name, number, email, message) VALUES(?,?,?,?,?)");
+         $insert_contact->execute([$id, $name, $number, $email, $message]);
+
+         if($insert_contact->rowCount() > 0) {
+            $success_msg[] = 'Message Sent Successfully!';
+         } else {
+            $warning_msg[] = 'Failed to send the message. Please try again later.';
+         }
+      }
    }
-
 }
-
 ?>
+
+<!-- Display success and warning messages in HTML -->
+<?php if(!empty($warning_msg)): ?>
+   <div class="alert alert-warning"><?php echo implode('<br>', $warning_msg); ?></div>
+<?php endif; ?>
+
+<?php if(!empty($success_msg)): ?>
+   <div class="alert alert-success"><?php echo implode('<br>', $success_msg); ?></div>
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html lang="en">
