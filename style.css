@@ -181,16 +181,20 @@ section {
 
 .skills .bar {
   flex: 1 1 45%;
-  margin: 15px 5%;
+  margin: 15px 0; /* Adjust the vertical margin for more spacing between rows */
   padding: 15px;
   background-color: var(--background-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly increase shadow effect */
+  border-radius: 10px; /* Adds smooth corners for a modern look */
+  transition: transform 0.8s ease-in-out; /* Adds hover animation */
 }
 
 .skills .bar h3 {
   display: flex;
   justify-content: space-between;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333; /* Use a dark color for better text visibility */
 }
 
 .edu-exp .row {

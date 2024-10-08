@@ -243,9 +243,11 @@ section{
    margin:3rem 0;
 }
 
-.about .skills .progress{
-   margin-top: 1rem;
-}
+.skills .progress {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+ }
 
 .about .skills .progress .bar{
    margin:1rem auto;
@@ -268,51 +270,51 @@ section{
 }
 
 .about .skills .progress .bar:nth-child(1) h3{
-   width: 90%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(2) h3{
-   width: 75%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(3) h3{
-   width: 60%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(4) h3{
-   width: 80%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(5) h3{
-   width: 90%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(6) h3{
-   width: 75%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(7) h3{
-   width: 60%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(8) h3{
-   width: 80%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(9) h3{
-   width: 90%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(10) h3{
-   width: 75%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(11) h3{
-   width: 60%;
+   width: 100%;
 }
 
 .about .skills .progress .bar:nth-child(12) h3{
-   width: 80%;
+   width: 100%;
 }
 
 .about .edu-exp .row{
