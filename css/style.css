@@ -400,27 +400,49 @@ section{
    color:var(--white);
 }
 
-.portfolio .box-container{
+.portfolio .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-   gap:1.5rem;
+   gap: 1.5rem;
    align-items: flex-start;
 }
 
-.portfolio .box-container .box img{
-   height: 30rem;
-   width: 100%;
-   object-fit: cover;
+.portfolio .box-container .box {
+   padding: 3rem 2rem;
+   border: var(--border-light);
+   text-align: center; /* Ensuring text and content are centered */
 }
 
-.portfolio .box-container .box h3{
-   margin:1rem 0;
+.portfolio .box-container .box img {
+   height: auto;
+   width: 100%;
+   object-fit: cover;
+   margin-bottom: 2rem; /* Adding margin for better spacing */
+}
+
+.portfolio .box-container .box h3 {
+   margin: 1rem 0;
    font-size: 2rem;
+   padding: 1.5rem;
    font-weight: normal;
 }
 
-.portfolio .box-container .box span{
+.portfolio .box-container .box p {
+   line-height: 2;
    font-size: 1.7rem;
+}
+
+/* Adding hover effects to match the services section */
+.portfolio .box-container .box:hover {
+   background-color: var(--black);
+}
+
+.portfolio .box-container .box:hover h3 {
+   color: var(--white); /* Change h3 text color on hover */
+}
+
+.portfolio .box-container .box:hover p {
+   color: var(--white); /* Change paragraph text color on hover */
 }
 
 .contact form{
