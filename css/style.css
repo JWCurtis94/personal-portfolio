@@ -400,50 +400,104 @@ section{
    color:var(--white);
 }
 
+/* Diagonal Portfolio Grid Container */
 .portfolio .box-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-   gap: 1.5rem;
-   align-items: flex-start;
+   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Smaller grid items */
+   gap: 2rem; /* Space between items */
+   padding: 2rem;
+   margin: 0 auto;
+   max-width: 1200px;
+   transform: rotate(-10deg); /* Diagonal tilt for the whole grid */
+   transform-origin: center;
 }
 
+/* Box Styling */
 .portfolio .box-container .box {
-   padding: 3rem 2rem;
-   border: var(--border-light);
-   text-align: center; /* Ensuring text and content are centered */
+   padding: 2rem;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   background-color: var(--light-background);
+   text-align: center;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   position: relative;
+   overflow: hidden;
+   transform: rotate(10deg); /* Rotate back the individual boxes to keep them upright */
 }
 
+/* Image Styling */
 .portfolio .box-container .box img {
    height: auto;
    width: 100%;
    object-fit: cover;
-   margin-bottom: 2rem; /* Adding margin for better spacing */
+   border-radius: 8px;
+   margin-bottom: 1rem;
+   transition: transform 0.3s ease;
 }
 
+/* Heading Styling */
 .portfolio .box-container .box h3 {
-   margin: 1rem 0;
-   font-size: 2rem;
-   padding: 1.5rem;
-   font-weight: normal;
+   font-size: 1.6rem; /* Smaller text */
+   font-weight: 400;
+   color: var(--primary-color);
+   margin-bottom: 0.5rem;
+   transition: transform 0.3s ease;
 }
 
+/* Paragraph Styling */
 .portfolio .box-container .box p {
-   line-height: 2;
-   font-size: 1.7rem;
+   font-size: 1.4rem; /* Smaller text */
+   color: var(--text-color);
+   line-height: 1.6;
+   margin-bottom: 1rem;
 }
 
-/* Adding hover effects to match the services section */
+/* Hover Effects for the Box */
 .portfolio .box-container .box:hover {
-   background-color: var(--black);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   transform: translateY(-5px) rotate(10deg); /* Slight lift without altering the rotation */
 }
 
-.portfolio .box-container .box:hover h3 {
-   color: var(--white); /* Change h3 text color on hover */
+/* Image Hover Effects */
+.portfolio .box-container .box:hover img {
+   transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.portfolio .box-container .box:hover p {
-   color: var(--white); /* Change paragraph text color on hover */
+/* Button Styling (optional) */
+.portfolio .box-container .box .btn {
+   margin-top: 1rem;
+   padding: 0.5rem 1rem;
+   background-color: var(--primary-color);
+   color: var(--white);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 1.4rem;
 }
+
+.portfolio .box-container .box .btn:hover {
+   background-color: var(--secondary-color); /* Change button color on hover */
+}
+
+/* Subtle Animation for the Entire Box */
+@keyframes boxAnimation {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.portfolio .box-container .box {
+   animation: boxAnimation 0.6s ease-in-out; /* Animated appearance of boxes */
+}
+
+
+
 
 .contact form{
    max-width: 70rem;
@@ -569,4 +623,52 @@ section{
       width: 100%;
    }
 
+}
+
+/* General text styling for paragraph */
+.text {
+   font-size: 1.6rem; /* Base font size */
+   font-weight: 400; /* Normal weight */
+   color: var(--primary-text-color); /* Primary theme color */
+   line-height: 1.8; /* Enhanced readability */
+   margin: 2rem auto; /* Auto to center the element horizontally */
+   max-width: 800px; /* Restrict width for better readability on large screens */
+   text-align: center; /* Center-align text */
+   padding: 0 2rem; /* Added side padding for better readability on smaller screens */
+   letter-spacing: 0.5px; /* Slight spacing for readability */
+   transition: color 0.3s ease; /* Smooth transition for hover or color changes */
+}
+
+/* Optional: Modify the <span> for emphasis or highlighting */
+.text span {
+   display: inline-block;
+   padding: 0.5rem 0;
+   color: var(--accent-color); /* Accent color for highlighted words or phrases */
+   font-weight: 500; /* Slightly bolder for emphasis */
+}
+
+/* AOS fade-up animation */
+[data-aos="fade-up"] {
+   opacity: 0;
+   transform: translateY(30px); /* Increased translation for more noticeable effect */
+   transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth fade and movement */
+}
+
+/* Once the element is in view */
+[data-aos="fade-up"].aos-animate {
+   opacity: 1;
+   transform: translateY(0); /* Reset transform */
+}
+
+/* Hover effect for text, if needed */
+.text:hover {
+   color: var(--secondary-text-color); /* Change text color on hover */
+}
+
+/* Responsive typography for smaller screens */
+@media (max-width: 768px) {
+   .text {
+       font-size: 1.4rem; /* Adjust font size for mobile devices */
+       padding: 0 1rem; /* Reduce padding on smaller screens */
+   }
 }
