@@ -318,15 +318,15 @@ if(isset($_POST['submit'])) {
 
    <h1 class="heading" data-aos="fade-up"> <span>contact me</span> </h1>
 
-   <form action="" method="post">
-      <div class="flex">
-         <input data-aos="fade-right" type="text" name="name" placeholder="enter your name" class="box" required maxlength="20">
-         <input data-aos="fade-up" type="number" min="0" name="number" placeholder="enter your number" class="box" required maxlength="10" min="0" max="9999999999">
-      </div>
-      <input data-aos="fade-left" type="email" name="email" placeholder="enter your email" class="box" maxlength="50" required>
-      <textarea data-aos="fade-up" name="message" maxlength="1000" class="box" required placeholder="enter your message" cols="30" rows="10"></textarea>
-      <input type="submit" data-aos="zoom-in" value="send message" name="submit" class="btn">
-   </form>
+   <form action="/path/to/your/handler" method="post">
+   <div class="flex">
+      <input data-aos="fade-right" type="text" name="name" placeholder="enter your name" class="box" required maxlength="20">
+      <input data-aos="fade-up" type="number" name="number" placeholder="enter your number" class="box" required maxlength="10" min="0" max="9999999999">
+   </div>
+   <input data-aos="fade-left" type="email" name="email" placeholder="enter your email" class="box" maxlength="50" required>
+   <textarea data-aos="fade-up" name="message" maxlength="1000" class="box" required placeholder="enter your message" cols="30" rows="10"></textarea>
+   <input type="submit" data-aos="zoom-in" value="send message" name="submit" class="btn">
+</form>
 
    <div class="box-container">
 
